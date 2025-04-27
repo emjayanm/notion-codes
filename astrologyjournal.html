@@ -1,0 +1,62 @@
+<div style="background:#F1F2EE; padding:20px; border-radius:12px; font-family:'Noto Sans', sans-serif; color:#435058; max-width:450px; margin:auto;">
+  <h2 style="text-align:center; color:#435058;">🌙 Daily Astrology Reflection</h2>
+  
+  <p><strong>📅 Date:</strong> <br> <span id="currentDate"></span></p>
+  
+  <p><strong>🌌 Today's Astro Weather:</strong> <br> [e.g., Moon in Virgo — Healing energy]</p>
+  
+  <p><strong>✨ Reflection Prompt:</strong> <br> <span id="reflectionPrompt"></span></p>
+  
+  <p><strong>🪐 My Reflection:</strong> <br> [Write your thoughts here]</p>
+
+  <hr style="border:0; border-top:1px solid #BFB7B6; margin:20px 0;">
+  
+  <p style="text-align:center; font-style:italic; color:#BFB7B6;">"As above, so within." ✨</p>
+</div>
+
+<script>
+  // Define your 30 astrology reflection prompts
+  const prompts = [
+    "How does today's Moon phase reflect my inner emotions?",
+    "What does the current Sun sign inspire me to focus on?",
+    "Where can I communicate more clearly under today's Mercury influence?",
+    "How can I embody the qualities of today's rising Moon sign?",
+    "In what area of life am I being invited to expand, according to Jupiter's placement?",
+    "What is Venus teaching me about love, beauty, or self-worth today?",
+    "How can I work with Mars's energy to take action aligned with my goals?",
+    "What area of structure or discipline is Saturn highlighting for me right now?",
+    "How does Neptune’s energy inspire my dreams or intuition today?",
+    "Where am I feeling transformation or rebirth under Pluto’s current influence?",
+    "What qualities of today’s Moon sign would help me feel more balanced?",
+    "How can I honor my emotional needs under today's lunar energy?",
+    "Where am I being called to heal and release with Chiron's guidance?",
+    "How can I better listen to my intuition during this lunar cycle?",
+    "In what ways can I ground myself under today's Earth energy (Taurus, Virgo, Capricorn)?",
+    "Where can I invite more flow and openness under today's Water energy (Cancer, Scorpio, Pisces)?",
+    "How can I work with today's Fire energy (Aries, Leo, Sagittarius) to fuel my passions?",
+    "What thoughts or patterns am I being asked to shift during Mercury’s current transit?",
+    "How can I practice gratitude for the small wins today? (Moon-Jupiter reflection)",
+    "Where am I resisting change, and how can I soften into the process? (Uranus prompt)",
+    "How can I nurture my connections under today’s Venus energy?",
+    "What is today's Moon-Sun interaction revealing about my needs versus my wants?",
+    "What seeds am I planting today, even if they are invisible? (New Moon style prompt)",
+    "Where do I need to trust divine timing more fully? (Saturn + Neptune theme)",
+    "How does today's astrological energy support my self-expression?",
+    "What boundaries do I need to affirm or adjust today? (Saturn theme)",
+    "How can I open my heart to new possibilities under today's lunar influence?",
+    "Where do I feel called to slow down and reconnect with myself?",
+    "What gifts does today’s astrological weather offer if I stay open?",
+    "How am I aligning with the cosmic cycles of growth, rest, and rebirth?"
+  ];
+
+  // Get today's day of the month
+  const today = new Date();
+  const day = today.getDate(); // 1-31
+  
+  // Display the current date nicely
+  document.getElementById("currentDate").textContent = today.toDateString();
+  
+  // Choose the prompt (adjust for array index starting at 0)
+  const promptIndex = (day - 1) % prompts.length;
+  document.getElementById("reflectionPrompt").textContent = prompts[promptIndex];
+</script>
