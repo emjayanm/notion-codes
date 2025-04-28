@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Major Arcana 3-Card Tarot Pull</title>
+<style>
+  body {
+    background-color: #f1f2ee;
+    font-family: 'Courier New', Courier, monospace;
+    color: #435058;
+    text-align: center;
+    padding: 2em;
+    margin: 0;
+  }
+  h1 {
+    font-size: 2em;
+    color: #435058;
+    margin-bottom: 1em;
+  }
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+  }
+  .card {
+    background: #dcf763;
+    color: #435058;
+    border-radius: 8px;
+    padding: 1em;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(67, 80, 88, 0.15);
+    transition: transform 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  button {
+    margin-top: 2em;
+    padding: 0.7em 1.5em;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
+    background-color: #848c8e;
+    color: #f1f2ee;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  button:hover {
+    background-color: #435058;
+  }
+</style>
+</head>
+<body>
+
+<h1>🌙 Your 3-Card Tarot Pull</h1>
+<div id="cards" class="cards-container"></div>
+<button onclick="pullCards()">Pull 3 Cards</button>
+
+<script>
+// Basic Rider-Waite-Smith major arcana deck
+const deck = [
+  { name: "The Fool", meaning: "New beginnings, spontaneity, free spirit" },
+  { name: "The Magician", meaning: "Manifestation, resourcefulness, power" },
+  { name: "The High Priestess", meaning: "Intuition, sacred knowledge, mystery" },
+  { name: "The Empress", meaning: "Fertility, beauty, nurturing" },
+  { name: "The Emperor", meaning: "Authority, structure, foundation" },
+  { name: "The Hierophant", meaning: "Tradition, spiritual wisdom, conformity" },
+  { name: "The Lovers", meaning: "Love, harmony, relationships, values alignment" },
+  { name: "The Chariot", meaning: "Willpower, success, action, determination" },
+  { name: "Strength", meaning: "Courage, compassion, endurance" },
+  { name: "The Hermit", meaning: "Soul-searching, introspection, solitude" },
+  { name: "Wheel of Fortune", meaning: "Cycles, destiny, a turning point" },
+  { name: "Justice", meaning: "Truth, fairness, law, cause and effect" },
+  { name: "The Hanged Man", meaning: "Pause, surrender, letting go" },
+  { name: "Death", meaning: "Endings, transition, transformation" },
+  { name: "Temperance", meaning: "Balance, moderation, patience" },
+  { name: "The Devil", meaning: "Attachment, addiction, restriction" },
+  { name: "The Tower", meaning: "Upheaval, sudden change, revelation" },
+  { name: "The Star", meaning: "Hope, inspiration, renewal" },
+  { name: "The Moon", meaning: "Illusion, fear, anxiety, intuition" },
+  { name: "The Sun", meaning: "Joy, success, celebration, positivity" },
+  { name: "Judgement", meaning: "Reflection, reckoning, inner calling" },
+  { name: "The World", meaning: "Completion, integration, accomplishment" }
+];
+
+function pullCards() {
+  const shuffled = [...deck].sort(() => Math.random() - 0.5);
+  const selected = shuffled.slice(0, 3);
+  const cardsDiv = document.getElementById('cards');
+  cardsDiv.innerHTML = '';
+
+  selected.forEach((card, index) => {
+    const cardDiv = document.createElement('div');
+    cardDiv.className = 'card';
+    cardDiv.innerHTML = `
+      <h2>Card ${index + 1}: ${card.name}</h2>
+      <p>${card.meaning}</p>
+    `;
+    cardsDiv.appendChild(cardDiv);
+  });
+}
+</script>
+
+</body>
+</html>
