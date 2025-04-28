@@ -1,0 +1,151 @@
+<div style="background:#435058; padding:20px; border-radius:12px; font-family:'Roboto Mono', 'Noto Mono', monospace; color:#F1F2EE; max-width:500px; margin:auto; box-shadow:0px 2px 8px rgba(67,80,88,0.2);">
+  <h2 style="text-align:center; color:#DCF763; text-shadow:1px 1px 2px rgba(0,0,0,0.3);">🌙 Daily Astrology Prompt</h2>
+
+  <center><p id="reflectionPrompt" style="margin-top:20px; font-size:16px; line-height:1.6; opacity:0; transition:opacity 1.5s ease-in;"></p></center>
+
+  <hr style="border:0; border-top:1px solid #BFB7B6; margin:20px 0;">
+
+  <p style="text-align:center; font-style:italic; color:#ffffff;">"A new cosmic reflection each day." 🌌</p>
+</div>
+
+<script>
+  const prompts = [
+    "How does today's Moon phase reflect my inner emotions?",
+    "What does the current Sun sign inspire me to focus on?",
+    "Where can I communicate more clearly under today's Mercury influence?",
+    "How can I embody the qualities of today's rising Moon sign?",
+    "In what area of life am I being invited to expand, according to Jupiter's placement?",
+    "What is Venus teaching me about love, beauty, or self-worth today?",
+    "How can I work with Mars's energy to take action aligned with my goals?",
+    "What area of structure or discipline is Saturn highlighting for me right now?",
+    "How does Neptune’s energy inspire my dreams or intuition today?",
+    "Where am I feeling transformation or rebirth under Pluto’s current influence?",
+    "What qualities of today’s Moon sign would help me feel more balanced?",
+    "How can I honor my emotional needs under today's lunar energy?",
+    "Where am I being called to heal and release with Chiron's guidance?",
+    "How can I better listen to my intuition during this lunar cycle?",
+    "In what ways can I ground myself under today's Earth energy (Taurus, Virgo, Capricorn)?",
+    "Where can I invite more flow and openness under today's Water energy (Cancer, Scorpio, Pisces)?",
+    "How can I work with today's Fire energy (Aries, Leo, Sagittarius) to fuel my passions?",
+    "What thoughts or patterns am I being asked to shift during Mercury’s current transit?",
+    "How can I practice gratitude for the small wins today? (Moon-Jupiter reflection)",
+    "Where am I resisting change, and how can I soften into the process? (Uranus prompt)",
+    "How can I nurture my connections under today’s Venus energy?",
+    "What is today's Moon-Sun interaction revealing about my needs versus my wants?",
+    "What seeds am I planting today, even if they are invisible? (New Moon style prompt)",
+    "Where do I need to trust divine timing more fully? (Saturn + Neptune theme)",
+    "How does today's astrological energy support my self-expression?",
+    "What boundaries do I need to affirm or adjust today? (Saturn theme)",
+    "How can I open my heart to new possibilities under today's lunar influence?",
+    "Where do I feel called to slow down and reconnect with myself?",
+    "What gifts does today’s astrological weather offer if I stay open?",
+    "How am I aligning with the cosmic cycles of growth, rest, and rebirth?",
+    "What energy am I choosing to embody today?",
+    "How can I create space for new beginnings?",
+    "What dreams feel most alive within me right now?",
+    "Where in my life can I practice greater trust?",
+    "What small act of self-love can I give myself today?",
+    "What am I ready to release in order to move forward?",
+    "What part of me is asking for more compassion?",
+    "How can I anchor into clarity today?",
+    "What truth have I been avoiding that I’m ready to face?",
+    "Where can I invite more joy into my life?",
+    "How can I nurture a sense of belonging within myself?",
+    "What belief no longer feels aligned with who I am becoming?",
+    "What is one tiny action step I can take toward my dreams?",
+    "How can I honor my emotions without judgment?",
+    "What inner wisdom wants to guide me today?",
+    "Where in my life do I need to soften and allow?",
+    "How can I celebrate my growth, even if it's unseen?",
+    "What part of my intuition feels strongest today?",
+    "Where am I being called to slow down and listen?",
+    "What am I grateful for in this moment?",
+    "How can I embody greater resilience?",
+    "What energy do I want to amplify this week?",
+    "How can I remain grounded while embracing change?",
+    "What boundary needs strengthening to protect my peace?",
+    "How can I view a current challenge through a lens of growth?",
+    "What intention will I set for the coming month?",
+    "How can I deepen my connection to my body today?",
+    "Where do I need to give myself more grace?",
+    "What hidden talents are ready to surface within me?",
+    "How can I align more deeply with my core values?",
+    "What is one thing I can celebrate about myself today?",
+    "What seeds of intention am I planting now?",
+    "How can I cultivate deeper self-trust?",
+    "Where in my life is patience asking to be practiced?",
+    "What part of my spirit feels ready to expand?",
+    "How can I hold space for both grief and hope?",
+    "What old story am I ready to retire?",
+    "How can I step into greater authenticity today?",
+    "Where is creativity trying to emerge in my life?",
+    "How can I nourish my inner world today?",
+    "What is one courageous choice I can make?",
+    "What wisdom is my intuition offering me today?",
+    "How can I honor the pace of my personal journey?",
+    "Where am I being invited to forgive — myself or others?",
+    "What does true abundance feel like in my life?",
+    "How can I create more moments of stillness?",
+    "What am I learning about resilience through my experiences?",
+    "Where do I need to shed outdated expectations?",
+    "How can I infuse today with more lightness?",
+    "What boundary would support my well-being today?",
+    "How am I choosing to show up for myself this week?",
+    "How can I strengthen my energetic protection today?",
+    "What lessons are being revealed through current discomfort?",
+    "Where am I being called to lead in my own life?",
+    "What does alignment feel like in my body today?",
+    "How can I trust the unfolding of my life story?",
+    "What dream am I ready to declare more boldly?",
+    "How can I nurture my spiritual or energetic hygiene today?",
+    "What fear can I gently transmute into courage?",
+    "How can I prepare my heart to receive the abundance meant for me?",
+    "How can I honor my energy without apology today?",
+    "What story about myself am I ready to rewrite?",
+    "Where am I being called to surrender and trust?",
+    "How can I show gratitude for the abundance already around me?",
+    "What inner strength is quietly supporting me right now?",
+    "How can I welcome more playfulness into today?",
+    "What is asking to be forgiven within me?",
+    "Where can I be more tender toward my past self?",
+    "What would it feel like to embody my fullest authenticity today?",
+    "How can I remain rooted while reaching for something greater?",
+    "What can I celebrate about my persistence and growth?",
+    "Where might I be underestimating my own resilience?",
+    "How can I lean into joy without needing a reason?",
+    "What am I invited to release to create space for miracles?",
+    "How can I allow curiosity to guide me today?",
+    "Where do I feel called to expand my creative expression?",
+    "What fear is ready to alchemize into wisdom?",
+    "How can I nurture my connection with the unseen world?",
+    "What energy am I magnetizing through my intentions?",
+    "How can I shift my perspective to see opportunities in my current situation?",
+    "Where in my life do I need to be more unapologetically myself?",
+    "What area of my life would flourish if I chose radical trust?",
+    "How can I embody gentleness toward myself today?",
+    "Where can I invite more harmony into my internal world?",
+    "How is the universe subtly supporting me right now?",
+    "What part of my soul is asking for deeper exploration?",
+    "How can I soften resistance and invite greater flow?",
+    "What dream am I now brave enough to pursue?",
+    "How can I replenish my spirit through small, meaningful rituals?",
+    "Where can I act as a co-creator with the universe today?"
+  ];
+
+  function getDayOfYear(date) {
+    const start = new Date(date.getFullYear(), 0, 0);
+    const diff = date - start;
+    const oneDay = 1000 * 60 * 60 * 24;
+    return Math.floor(diff / oneDay);
+  }
+
+  const today = new Date();
+  const dayOfYear = getDayOfYear(today);
+  const promptIndex = (dayOfYear - 1) % prompts.length;
+  const promptElement = document.getElementById("reflectionPrompt");
+
+  promptElement.textContent = prompts[promptIndex];
+  setTimeout(() => {
+    promptElement.style.opacity = 1;
+  }, 100);
+</script>
