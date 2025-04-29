@@ -1,0 +1,92 @@
+<!-- 
+Created by Sarah at emjayanm.com 
+-->
+
+<div style="background:#F1F2EE; padding:20px; border-radius:12px; font-family:'Roboto Mono', 'Noto Mono', monospace; color:#435058; max-width:500px; margin:auto; box-shadow:0px 2px 8px rgba(67,80,88,0.2); text-align:center;">
+  <h2 id="houseTitle" style="color:#435058; text-shadow:1px 1px 2px rgba(0,0,0,0.3);">🏠 1st House – The House of Self</h2>
+  
+  <p id="houseDescription" style="font-size:16px; line-height:1.6; margin-top:20px; opacity:0; transition:opacity 1.5s ease-in;"></p>
+
+  <div style="margin-top:30px;">
+    <button onclick="previousHouse()" style="background:#DCF763; border:none; padding:10px 20px; margin:5px; border-radius:6px; color:#435058; font-weight:bold; cursor:pointer;">⬅️ Back</button>
+    <button onclick="nextHouse()" style="background:#DCF763; border:none; padding:10px 20px; margin:5px; border-radius:6px; color:#435058; font-weight:bold; cursor:pointer;">Next ➡️</button>
+  </div>
+</div>
+
+<script>
+  const houses = [
+    {
+      title: "🏠 1st House – The House of Self",
+      description: "It’s all about you! It represents your outward personality, first impressions, style, self-identity and image, physical appearance, and the way you initiate things. It’s also tied to your personal drive and how you instinctively act when facing change and new beginnings."
+    },
+    {
+      title: "💰 2nd House – The House of Value",
+      description: "This is all about your relationship with money, possessions, values, and self-worth. It reveals how you earn, spend, and save — but even deeper, it shows how much you believe you deserve abundance. This house is your foundation for building financial and personal security. This is where your values will shape your level of abundance."
+    },
+    {
+      title: "🗣️ 3rd House – The House of Communication",
+      description: "Communication including talking, writing, thinking and learning. It also governs short trips, intellect and siblings. It reflects how you process and share information, your curiosity about the world around you, and the relationships you form with neighbors and community. It’s the area of your chart that focuses on ideas, expression, and mental connections."
+    },
+    {
+      title: "🏡 4th House – The House of Home and Family",
+      description: "It represents your home, family roots, land, deep inner emotional foundation and ancestry. It’s tied to your private life and upbringing, karmic lessons in this life, and the way you nurture yourself and others."
+    },
+    {
+      title: "🎨 5th House – The House of Pleasure",
+      description: "Creativity, youthfulness, romance, and pure joy. It's the space of self-expression, passion projects, and playful adventures. This house is focused on matters of the heart like falling in love, taking risks, and letting your inner child roam free. It reminds you that pleasure is a very important part of maintaining a vibrant and joyous life."
+    },
+    {
+      title: "🛠️ 6th House – The House of Health and Service",
+      description: "Focus on your routines, wellness habits, physical illness, employees or co-workers, ability to work and daily tasks. It reveals your quality of work, day to day organization, how you take care of your body, and your personal hygiene. It’s the house of discipline, balance, and what you do consistently to build a better life."
+    },
+    {
+      title: "💞 7th House – The House of Partnerships",
+      description: "The focus here is on committed partnerships (marriage, romantic, business, or close one-on-one bonds). Think, permanent bond relationships. It shows what you look for in others and how you create cohesion (or tension) in relationships. This house teaches you the art of collaboration, cooperation, reflection, and sometimes, compromise for the sake of deeper connections."
+    },
+    {
+      title: "🔮 8th House – The House of Transformation",
+      description: "Birth, death, rebirth, deep intimacy, and shared resources. It’s where vulnerability meets power and understanding the paradox that in order to come out victorious, you must surrender. This house teaches you about trust, letting go, and experiencing profound transformation. This house also governs taxes, inheritances, wills and the act of sex."
+    },
+    {
+      title: "🌍 9th House – The House of Philosophy",
+      description: "It governs higher education, law, religion, spiritual exploration, philosophy, long-distance travel, wisdom, truth, search for meaning. It encourages you to expand your mind and spirit, explore new cultures, challenge your belief systems, and seek meaning that’s bigger than yourself."
+    },
+    {
+      title: "🏆 10th House – The House of Career",
+      description: "It’s tied to power, professional career, reputation or status, personal achievements, public image, and life goals. This house reveals how you want to be seen in the world and what kind of legacy you hope to leave behind. Any planets and signs within and on the cusp of the 10th house are important because they will have a great influence in your career and your reputation."
+    },
+    {
+      title: "🤝 11th House – The House of Friendships",
+      description: "The 11th House is the circle of your community, friends, social groups, wishes and collective dreams. It highlights the people you network with and the causes you care about. Here, it’s all about shared visions, collaboration, innovation, liberty and legislation."
+    },
+    {
+      title: "🧘 12th House – The House of the Subconscious",
+      description: "It rules your subconscious mind, spiritual growth, karmic debts, illness, frustration, subconscious habit patterns, hidden self, dreams, and places of solitude. It’s where you connect to your inner world, heal old wounds, and dissolve boundaries. On the physical level, it governs different things that remove us from everyday life (institutions, secrets, hidden enemies, grief, seclusion and other forms of sorrow). Though sometimes challenging and misunderstood, this house offers deep wisdom as it also connects to the collective consciousness of humanity."
+    }
+  ];
+
+  let currentHouse = 0;
+
+  function updateHouse() {
+    const house = houses[currentHouse];
+    document.getElementById("houseTitle").textContent = house.title;
+    document.getElementById("houseDescription").style.opacity = 0;
+    setTimeout(() => {
+      document.getElementById("houseDescription").textContent = house.description;
+      document.getElementById("houseDescription").style.opacity = 1;
+    }, 100);
+  }
+
+  function nextHouse() {
+    currentHouse = (currentHouse + 1) % houses.length;
+    updateHouse();
+  }
+
+  function previousHouse() {
+    currentHouse = (currentHouse - 1 + houses.length) % houses.length;
+    updateHouse();
+  }
+
+  // Initial Load
+  window.onload = updateHouse;
+</script>
