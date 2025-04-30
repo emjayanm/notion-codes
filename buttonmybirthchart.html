@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <style>
+    :root {
+      --button-bg: #F1F2EE;
+      --button-text: #000000;
+      --button-border: #000000;
+      --button-shadow: #DCF763;
+      --button-press: #e6e6e6;
+    }
+
+    button {
+      font-family: 'Roboto Mono', 'Noto Mono', monospace;
+      cursor: pointer;
+      outline: none;
+      border: 1px solid var(--button-border);
+      transition: all 0.1s ease-in-out;
+    }
+
+    .btn {
+      text-align: center;
+      color: var(--button-text);
+      display: inline-block;
+      margin: 10px;
+      background-color: var(--button-bg);
+      box-shadow: 0px 4px 0px var(--button-shadow);
+    }
+
+    .btn:active {
+      box-shadow: 0 0;
+      transform: translateY(4px);
+      background-color: var(--button-press);
+    }
+
+    .rounded {
+      border-radius: 20px;
+    }
+
+    .large {
+      padding: 15px 60px;
+      font-size: 18px;
+    }
+
+    i {
+      padding-right: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="btn large rounded" type="button" onclick="navigate()">
+    <i class="fa-solid fa-circle-user" style="color: #000000;"></i> My Birth Chart
+  </button>
+
+  <script>
+    function navigate() {
+      window.open("https://www.notion.so/My-Birth-Chart-1e3a8c93ba208149b2d0e1dde99e96aa?pvs=4", '_parent').focus();
+    }
+  </script>
+</body>
+</html>
