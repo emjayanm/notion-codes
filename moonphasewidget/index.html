@@ -6,18 +6,91 @@
   <link rel="stylesheet" href="styles.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+    body {
+      font-family: 'Roboto Mono', monospace;
+      background-color: #F1F2EE;
+      color: #435058;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 16px;
+    }
+
+    .moon-date {
+      background-color: #DCF763;
+      padding: 10px 16px;
+      margin: 6px;
+      display: inline-block;
+      border-radius: 12px;
+      font-size: 14px;
+      color: #435058;
+    }
+
+    .tooltip {
+      position: relative;
+      cursor: help;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 180px;
+      background-color: #435058;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 6px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .btn-toggle {
+      font-family: 'Roboto Mono', monospace;
+      background-color: #F1F2EE;
+      color: #435058;
+      border: 1px solid #435058;
+      border-radius: 24px;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      box-shadow: 0px 4px #DCF763;
+      transition: all 0.2s ease;
+    }
+
+    .btn-toggle:active {
+      box-shadow: 0px 1px #DCF763;
+      transform: translateY(3px);
+    }
+
+    #calendar-view,
+    #timeline-view {
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
+
   <h1>🌙 New & Full Moons – <span id="year-label"></span></h1>
 
-  <div style="margin-bottom: 20px;">
-    <button onclick="showCalendar()">🗓 Calendar View</button>
-    <button onclick="showTimeline()">📆 Timeline View</button>
+  <div>
+    <button class="btn-toggle" onclick="showCalendar()">🗓 Calendar View</button>
+    <button class="btn-toggle" onclick="showTimeline()">📆 Timeline View</button>
   </div>
 
-  <div class="calendar-container" id="calendar-view"></div>
-  <div class="timeline-container" id="timeline-view" style="display:none;"></div>
+  <div id="calendar-view"></div>
+  <div id="timeline-view" style="display:none;"></div>
 
   <script src="moonPhases.js"></script>
   <script>
@@ -58,8 +131,9 @@
     });
   </script>
 
-  <div style="position:fixed;bottom:10px;right:10px;font-size:12px;color:#435058;font-family:'Roboto Mono', monospace;">
+  <div style="position:fixed;bottom:10px;right:10px;font-size:12px;color:#435058;">
     🌙 EMJAY Lunar Widget · emjayanm.com
   </div>
+
 </body>
 </html>
