@@ -23,6 +23,32 @@ const moonPhases = [
   { date: "2025-11-05", type: "New Moon", sign: "Scorpio" },
   { date: "2025-11-20", type: "Full Moon", sign: "Gemini" },
   { date: "2025-12-05", type: "New Moon", sign: "Sagittarius" },
-  { date: "2025-12-19", type: "Full Moon", sign: "Cancer" }
+  { date: "2025-12-19", type: "Full Moon", sign: "Cancer" },
+  { date: "2026-01-08", type: "Full Moon", sign: "Cancer" },
+{ date: "2026-01-23", type: "New Moon", sign: "Aquarius" },
+{ date: "2026-02-06", type: "Full Moon", sign: "Leo" },
+{ date: "2026-02-20", type: "New Moon", sign: "Pisces" },
+{ date: "2026-03-08", type: "Full Moon", sign: "Virgo" },
+{ date: "2026-03-24", type: "New Moon", sign: "Aries" },
+{ date: "2026-04-07", type: "Full Moon", sign: "Libra" },
+{ date: "2026-04-22", type: "New Moon", sign: "Taurus" },
+{ date: "2026-05-07", type: "Full Moon", sign: "Scorpio" },
+{ date: "2026-05-21", type: "New Moon", sign: "Gemini" },
+{ date: "2026-06-05", type: "Full Moon", sign: "Sagittarius" },
+{ date: "2026-06-19", type: "New Moon", sign: "Cancer" },
+{ date: "2026-07-05", type: "Full Moon", sign: "Capricorn" },
+{ date: "2026-07-18", type: "New Moon", sign: "Cancer" },
+{ date: "2026-08-03", type: "Full Moon", sign: "Aquarius" },
+{ date: "2026-08-17", type: "New Moon", sign: "Leo" },
+{ date: "2026-09-02", type: "Full Moon", sign: "Pisces" },
+{ date: "2026-09-16", type: "New Moon", sign: "Virgo" },
+{ date: "2026-10-02", type: "Full Moon", sign: "Aries" },
+{ date: "2026-10-16", type: "New Moon", sign: "Libra" },
+{ date: "2026-10-31", type: "Full Moon", sign: "Taurus" },
+{ date: "2026-11-15", type: "New Moon", sign: "Scorpio" },
+{ date: "2026-11-30", type: "Full Moon", sign: "Gemini" },
+{ date: "2026-12-15", type: "New Moon", sign: "Sagittarius" },
+{ date: "2026-12-30", type: "Full Moon", sign: "Cancer" }
+
   // Extend through 2030 as needed
 ];
