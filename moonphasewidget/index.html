@@ -94,6 +94,7 @@
 
   <script src="moonPhases.js"></script>
   <script>
+  document.addEventListener("DOMContentLoaded", () => {
     const thisYear = new Date().getFullYear();
     document.getElementById("year-label").textContent = thisYear;
 
@@ -114,6 +115,10 @@
       timelineDiv.style.display = "block";
     }
 
+    // Attach toggle functions to global scope
+    window.showCalendar = showCalendar;
+    window.showTimeline = showTimeline;
+
     // Render both views
     filteredMoons.forEach(phase => {
       const dateObj = new Date(phase.date);
@@ -129,7 +134,8 @@
       calendarDiv.appendChild(el.cloneNode(true));
       timelineDiv.appendChild(el);
     });
-  </script>
+  });
+</script>
 
   <div style="position:fixed;bottom:10px;right:10px;font-size:12px;color:#435058;">
     🌙 EMJAY Lunar Widget · emjayanm.com
