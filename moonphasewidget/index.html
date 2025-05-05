@@ -104,63 +104,40 @@
 <body>
 
   <h1>New & Full Moons – <span id="year-label"></span></h1>
-
   <button class="btn-toggle" onclick="toggleTheme()">Click for Dark Mode</button>
 
   <div id="calendar-view"></div>
 
- 
-
-</body>
-</html>
-  
+  <script src="moonPhases.js"></script>
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const thisYear = new Date().getFullYear();
-    document.getElementById("year-label").textContent = thisYear;
+    document.addEventListener("DOMContentLoaded", () => {
+      const thisYear = new Date().getFullYear();
+      document.getElementById("year-label").textContent = thisYear;
 
-    const calendarDiv = document.getElementById("calendar-view");
-    const timelineDiv = document.getElementById("timeline-view");
+      const calendarDiv = document.getElementById("calendar-view");
 
-    const filteredMoons = moonPhases.filter(phase => {
-      return new Date(phase.date).getFullYear() === thisYear;
-    });
-
-    function showCalendar() {
-      calendarDiv.style.display = "block";
-      timelineDiv.style.display = "none";
-    }
-
-    function showTimeline() {
-      calendarDiv.style.display = "none";
-      timelineDiv.style.display = "block";
-    }
-
-    // Attach toggle functions to global scope
-    window.showCalendar = showCalendar;
-    window.showTimeline = showTimeline;
-
-    // Render both views
-    filteredMoons.forEach(phase => {
-      const dateObj = new Date(phase.date);
-      const formattedDate = dateObj.toLocaleDateString("en-US", {
-        month: "long", day: "numeric"
+      const filteredMoons = moonPhases.filter(phase => {
+        return new Date(phase.date).getFullYear() === thisYear;
       });
 
-      const el = document.createElement("div");
-      el.className = "moon-date tooltip";
-      el.innerHTML = `${phase.type} — ${formattedDate}
-        <span class="tooltiptext">Moon in ${phase.sign}</span>`;
+      filteredMoons.forEach(phase => {
+        const dateObj = new Date(phase.date);
+        const formattedDate = dateObj.toLocaleDateString("en-US", {
+          month: "long", day: "numeric"
+        });
 
-      calendarDiv.appendChild(el.cloneNode(true));
-      timelineDiv.appendChild(el);
+        const el = document.createElement("div");
+        el.className = "moon-date tooltip";
+        el.innerHTML = `${phase.type} — ${formattedDate}<span class="tooltiptext">Moon in ${phase.sign}</span>`;
+
+        calendarDiv.appendChild(el);
+      });
     });
-  });
-</script>
 
-  <div style="position:fixed;bottom:10px;right:10px;font-size:12px;color:#435058;centered;">
-    🌙 EMJAY Lunar Widget · emjayanm.com
-  </div>
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
 
 </body>
 </html>
