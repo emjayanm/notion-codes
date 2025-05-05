@@ -17,6 +17,45 @@
   </div>
 
   <script src="moonPhases.js"></script>
+  <div style="margin-top:20px;">
+  <button onclick="showCalendar()">🗓 Calendar View</button>
+  <button onclick="showTimeline()">📆 Timeline View</button>
+</div>
+
+<div class="calendar-container" id="calendar-view"></div>
+<div class="timeline-container" id="timeline-view" style="display:none;"></div>
+
+<script>
+  const thisYear = new Date().getFullYear();
+  const calendarDiv = document.getElementById("calendar-view");
+  const timelineDiv = document.getElementById("timeline-view");
+
+  const filteredMoons = moonPhases.filter(phase => {
+    return new Date(phase.date).getFullYear() === thisYear;
+  });
+
+  function showCalendar() {
+    calendarDiv.style.display = "block";
+    timelineDiv.style.display = "none";
+  }
+
+  function showTimeline() {
+    calendarDiv.style.display = "none";
+    timelineDiv.style.display = "block";
+  }
+
+  // Render calendar view
+  filteredMoons.forEach(phase => {
+    const dateObj = new Date(phase.date);
+    const formattedDate = dateObj.toLocaleDateString("en-US", { month: "long", day: "numeric" });
+    const el = document.createElement("div");
+    el.className = "moon-date tooltip";
+    el.innerHTML = `${phase.type} — ${formattedDate}
+      <span class="tooltiptext">Moon in ${phase.sign}</span>`;
+    calendarDiv.appendChild(el.cloneNode(true));
+    timelineDiv.appendChild(el);
+  });
+</script>
   <script>
     const calendarDiv = document.getElementById("moon-calendar");
 
