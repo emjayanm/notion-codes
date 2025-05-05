@@ -2,75 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🌙 EMJAY Lunar Widget | emjayanm.com </title>
+  <title>🌙 EMJAY Lunar Widget | emjayanm.com</title>
   <link rel="stylesheet" href="styles.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
   </style>
 </head>
 <body>
-  <h1>Upcoming New & Full Moon Dates</h1>
-  <div class="calendar-container" id="moon-calendar"></div>
+  <h1>🌙 New & Full Moons – <span id="year-label"></span></h1>
 
-  <center><div style="position:fixed;bottom:10px;right:10px;font-size:12px;color:#435058;font-family:'Roboto Mono', monospace;">
-    🌙 EMJAY Lunar Widget emjayanm.com
-  </div></center>
+  <div style="margin-bottom: 20px;">
+    <button onclick="showCalendar()">🗓 Calendar View</button>
+    <button onclick="showTimeline()">📆 Timeline View</button>
+  </div>
+
+  <div class="calendar-container" id="calendar-view"></div>
+  <div class="timeline-container" id="timeline-view" style="display:none;"></div>
 
   <script src="moonPhases.js"></script>
   <script>
-    const calendarDiv = document.getElementById("moon-calendar");
+    const thisYear = new Date().getFullYear();
+    document.getElementById("year-label").textContent = thisYear;
 
-    moonPhases.forEach(phase => {
+    const calendarDiv = document.getElementById("calendar-view");
+    const timelineDiv = document.getElementById("timeline-view");
+
+    const filteredMoons = moonPhases.filter(phase => {
+      return new Date(phase.date).getFullYear() === thisYear;
+    });
+
+    function showCalendar() {
+      calendarDiv.style.display = "block";
+      timelineDiv.style.display = "none";
+    }
+
+    function showTimeline() {
+      calendarDiv.style.display = "none";
+      timelineDiv.style.display = "block";
+    }
+
+    // Render both views
+    filteredMoons.forEach(phase => {
       const dateObj = new Date(phase.date);
-      const formattedDate = dateObj.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+      const formattedDate = dateObj.toLocaleDateString("en-US", {
+        month: "long", day: "numeric"
+      });
 
-      const moonItem = document.createElement("div");
-      moonItem.className = "moon-date tooltip";
-      moonItem.innerHTML = `${phase.type} — ${formattedDate}
+      const el = document.createElement("div");
+      el.className = "moon-date tooltip";
+      el.innerHTML = `${phase.type} — ${formattedDate}
         <span class="tooltiptext">Moon in ${phase.sign}</span>`;
-      
-      calendarDiv.appendChild(moonItem);
+
+      calendarDiv.appendChild(el.cloneNode(true));
+      timelineDiv.appendChild(el);
     });
   </script>
-  <div style="margin-top:20px;">
-  <button onclick="showCalendar()">🗓 Calendar View</button>
-  <button onclick="showTimeline()">📆 Timeline View</button>
-</div>
 
-<div class="calendar-container" id="calendar-view"></div>
-<div class="timeline-container" id="timeline-view" style="display:none;"></div>
-
-<script>
-  const thisYear = new Date().getFullYear();
-  const calendarDiv = document.getElementById("calendar-view");
-  const timelineDiv = document.getElementById("timeline-view");
-
-  const filteredMoons = moonPhases.filter(phase => {
-    return new Date(phase.date).getFullYear() === thisYear;
-  });
-
-  function showCalendar() {
-    calendarDiv.style.display = "block";
-    timelineDiv.style.display = "none";
-  }
-
-  function showTimeline() {
-    calendarDiv.style.display = "none";
-    timelineDiv.style.display = "block";
-  }
-
-  // Render calendar view
-  filteredMoons.forEach(phase => {
-    const dateObj = new Date(phase.date);
-    const formattedDate = dateObj.toLocaleDateString("en-US", { month: "long", day: "numeric" });
-    const el = document.createElement("div");
-    el.className = "moon-date tooltip";
-    el.innerHTML = `${phase.type} — ${formattedDate}
-      <span class="tooltiptext">Moon in ${phase.sign}</span>`;
-    calendarDiv.appendChild(el.cloneNode(true));
-    timelineDiv.appendChild(el);
-  });
-</script>
-
+  <div style="position:fixed;bottom:10px;right:10px;font-size:12px;color:#435058;font-family:'Roboto Mono', monospace;">
+    🌙 EMJAY Lunar Widget · emjayanm.com
+  </div>
 </body>
 </html>
