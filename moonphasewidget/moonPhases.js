@@ -1,4 +1,4 @@
-// 🌙 Moon Phases Data: Preloaded 2025–2030
+// Moon Phases Data: Preloaded 2025–2030
 const moonPhases = [
   { date: "2025-01-13", type: "Full Moon", sign: "Cancer" },
   { date: "2025-01-29", type: "New Moon", sign: "Aquarius" },
