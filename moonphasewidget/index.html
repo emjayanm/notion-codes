@@ -17,6 +17,21 @@
   </div></center>
 
   <script src="moonPhases.js"></script>
+  <script>
+    const calendarDiv = document.getElementById("moon-calendar");
+
+    moonPhases.forEach(phase => {
+      const dateObj = new Date(phase.date);
+      const formattedDate = dateObj.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+
+      const moonItem = document.createElement("div");
+      moonItem.className = "moon-date tooltip";
+      moonItem.innerHTML = `${phase.type} — ${formattedDate}
+        <span class="tooltiptext">Moon in ${phase.sign}</span>`;
+      
+      calendarDiv.appendChild(moonItem);
+    });
+  </script>
   <div style="margin-top:20px;">
   <button onclick="showCalendar()">🗓 Calendar View</button>
   <button onclick="showTimeline()">📆 Timeline View</button>
@@ -56,20 +71,6 @@
     timelineDiv.appendChild(el);
   });
 </script>
-  <script>
-    const calendarDiv = document.getElementById("moon-calendar");
 
-    moonPhases.forEach(phase => {
-      const dateObj = new Date(phase.date);
-      const formattedDate = dateObj.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
-
-      const moonItem = document.createElement("div");
-      moonItem.className = "moon-date tooltip";
-      moonItem.innerHTML = `${phase.type} — ${formattedDate}
-        <span class="tooltiptext">Moon in ${phase.sign}</span>`;
-      
-      calendarDiv.appendChild(moonItem);
-    });
-  </script>
 </body>
 </html>
