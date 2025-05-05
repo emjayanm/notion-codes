@@ -9,7 +9,7 @@ const moonPhases = [
   { date: "2025-04-13", type: "Full Moon", sign: "Libra" },
   { date: "2025-04-28", type: "New Moon", sign: "Taurus" },
   { date: "2025-05-12", type: "Full Moon", sign: "Scorpio" },
-  { date: "2025-05-27", type: "New Moon", sign: "Gemini" }
+  { date: "2025-05-27", type: "New Moon", sign: "Gemini" },
   { date: "2025-07-10", type: "New Moon", sign: "Cancer" },
   { date: "2025-07-24", type: "Full Moon", sign: "Aquarius" },
   { date: "2025-08-09", type: "New Moon", sign: "Leo" },
