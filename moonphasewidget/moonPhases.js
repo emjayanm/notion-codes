@@ -1,1 +1,0 @@
-// JS with preloaded moon data from 2025–2030
