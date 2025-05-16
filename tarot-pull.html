@@ -76,28 +76,117 @@
 <script>
 // Rider-Waite major arcana with upright and reversed meanings
 const deck = [
-  { name: "The Fool", meaning_up: "New beginnings, spontaneity, free spirit", meaning_rev: "Recklessness, fear of change, holding back" },
-  { name: "The Magician", meaning_up: "Manifestation, resourcefulness, power", meaning_rev: "Manipulation, poor planning, untapped talents" },
-  { name: "The High Priestess", meaning_up: "Intuition, sacred knowledge, mystery", meaning_rev: "Secrets, disconnected from intuition, withdrawal" },
-  { name: "The Empress", meaning_up: "Fertility, beauty, nurturing", meaning_rev: "Creative block, dependence on others" },
-  { name: "The Emperor", meaning_up: "Authority, structure, foundation", meaning_rev: "Domination, excessive control, rigidity" },
-  { name: "The Hierophant", meaning_up: "Tradition, spiritual wisdom, conformity", meaning_rev: "Rebellion, subversiveness, freedom" },
-  { name: "The Lovers", meaning_up: "Love, harmony, relationships, values alignment", meaning_rev: "Disharmony, imbalance, misalignment of values" },
-  { name: "The Chariot", meaning_up: "Willpower, success, action, determination", meaning_rev: "Self-doubt, lack of direction, aggression" },
-  { name: "Strength", meaning_up: "Courage, compassion, endurance", meaning_rev: "Self-doubt, weakness, insecurity" },
-  { name: "The Hermit", meaning_up: "Soul-searching, introspection, solitude", meaning_rev: "Isolation, loneliness, withdrawal" },
-  { name: "Wheel of Fortune", meaning_up: "Cycles, destiny, a turning point", meaning_rev: "Bad luck, resistance to change, breaking cycles" },
-  { name: "Justice", meaning_up: "Truth, fairness, law, cause and effect", meaning_rev: "Dishonesty, imbalance, unfairness" },
-  { name: "The Hanged Man", meaning_up: "Pause, surrender, letting go", meaning_rev: "Stalling, needless sacrifice, fear of sacrifice" },
-  { name: "Death", meaning_up: "Endings, transition, transformation", meaning_rev: "Resistance to change, personal transformation" },
-  { name: "Temperance", meaning_up: "Balance, moderation, patience", meaning_rev: "Imbalance, excess, lack of long-term vision" },
-  { name: "The Devil", meaning_up: "Attachment, addiction, restriction", meaning_rev: "Freedom, release, restoring control" },
-  { name: "The Tower", meaning_up: "Upheaval, sudden change, revelation", meaning_rev: "Avoidance of disaster, fear of change" },
-  { name: "The Star", meaning_up: "Hope, inspiration, renewal", meaning_rev: "Despair, discouragement, insecurity" },
-  { name: "The Moon", meaning_up: "Illusion, fear, anxiety, intuition", meaning_rev: "Release of fear, clarity, understanding" },
-  { name: "The Sun", meaning_up: "Joy, success, celebration, positivity", meaning_rev: "Negativity, depression, sadness" },
-  { name: "Judgement", meaning_up: "Reflection, reckoning, inner calling", meaning_rev: "Self-doubt, lack of self-awareness, failure to learn" },
-  { name: "The World", meaning_up: "Completion, integration, accomplishment", meaning_rev: "Seeking closure, incomplete projects, delay" }
+{
+  name: "The Fool",
+  meaning_up: "You are standing at the edge of a new beginning. Trust your spirit and embrace the unknown.",
+  meaning_rev: "A need for grounding before leaping forward; consider your path and make intentional moves."
+},
+{
+  name: "The Magician",
+  meaning_up: "You have everything you need to manifest your desires. Align your intention and take inspired action.",
+  meaning_rev: "An invitation to reconnect with your inner tools and refocus your energy where you feel expansion."
+},
+{
+  name: "The High Priestess",
+  meaning_up: "Your intuition and awareness knows. Pause, listen, and honor the all of energy that is unfolding within you.",
+  meaning_rev: "A reminder to slow down and trust your inner voice more deeply."
+},
+{
+  name: "The Empress",
+  meaning_up: "You are a vessel of abundance, beauty, and creation. Nurture yourself and those around you.",
+  meaning_rev: "Nourish yourself first; creativity blooms when you feel supported and safe."
+},
+{
+  name: "The Emperor",
+  meaning_up: "Stability and leadership are within reach. Stand firm in your truth and protect what matters.",
+  meaning_rev: "Time to loosen rigid structures and invite more flexibility into your life."
+},
+{
+  name: "The Hierophant",
+  meaning_up: "Sacred knowledge flows through tradition, ritual, and shared wisdom. Honor and trust your gifts.",
+  meaning_rev: "Encouragement to explore your own beliefs and spiritual path."
+},
+{
+  name: "The Lovers",
+  meaning_up: "Deep connection and alignment are possible. Values and decisions are front and center. Focus on what feels aligned, and travel that path.",
+  meaning_rev: "A call to reflect on alignment within yourself or in your connections."
+},
+{
+  name: "The Chariot",
+  meaning_up: "With clarity and willpower, you are ready to move forward with purpose and direction.",
+  meaning_rev: "Pause and reflect before taking action. Realignment brings clarity."
+},
+{
+  name: "Strength",
+  meaning_up: "You hold a gentle power. Remember,true strength comes from compassion, not force.",
+  meaning_rev: "Gentle strength is needed now. Nurture your resilience with love & compassion."
+},
+{
+  name: "The Hermit",
+  meaning_up: "Solitude brings insight. It's a good time to focus on you right now.",
+  meaning_rev: "If you're feeling disconnected, take time to re-balance, but don't sit in solitude too long."
+},
+{
+  name: "Wheel of Fortune",
+  meaning_up: "The universe is shifting for you in the best ways! Keep going!",
+  meaning_rev: "Be open to changes. Even detours hold hidden blessings."
+},
+{
+  name: "Justice",
+  meaning_up: "Truth, clarity, and balance are available to you right now.",
+  meaning_rev: "Focus inward to find balance and clarity as not all truths are external."
+},
+{
+  name: "The Hanged Man",
+  meaning_up: "Surrender to a new perspective pause brings wisdom and freedom.",
+  meaning_rev: "Surrender is a process. Give yourself permission to move at your pace."
+},
+{
+  name: "Death",
+  meaning_up: "Let go to grow. Transformation is a sacred cycle of endings and rebirth in every aspect of life.",
+  meaning_rev: "Transformation is unfolding so allow gentle release of what no longer serves you."
+},
+{
+  name: "Temperance",
+  meaning_up: "Balance, peace, and patience are your allies here. Find your flow and trust divine timing.",
+  meaning_rev: "A reminder to return to your center and allow healing to unfold gradually."
+},
+{
+  name: "The Devil",
+  meaning_up: "Awareness is rising. Notice what holds you back and reclaim your power.",
+  meaning_rev: "Freedom is near. Notice where empowerment is ready to return."
+},
+{
+  name: "The Tower",
+  meaning_up: "Everything is shifting for your highest good! What falls away clears space for truth.",
+  meaning_rev: "You are being prepared for a breakthrough. Ttrust what’s being cleared."
+},
+{
+  name: "The Star",
+  meaning_up: "Hope is returning and it's beautiful. Allow yourself to be guided by inspiration and have faith.",
+  meaning_rev: "Hope may feel distant, but it still surrounds you always be aware and look for subtle signs. Have faith."
+},
+{
+  name: "The Moon",
+  meaning_up: "You are moving through mystery — honor your feelings and trust the unseen.",
+  meaning_rev: "Let clarity come softly — not all answers need to arrive at once."
+},
+{
+  name: "The Sun",
+  meaning_up: "Radiance, joy, and vitality are prominent in your life. Celebrate your light and let it shine freely.",
+  meaning_rev: "Joy is returning if you haven't experienced it recently. Release what isn't serving your highest good now."
+},
+{
+  name: "Judgement",
+  meaning_up: "This is your awakening. Make changes and decisions that align with where you ultimately want to go. Rise into alignment with your soul’s purpose.",
+  meaning_rev: "Your awakening is gentle. Give yourself grace as you grow and evolve."
+},
+{
+  name: "The World",
+  meaning_up: "You’ve come full circle. Celebrate your wholeness and all that you’ve integrated so far.",
+  meaning_rev: "You're nearly there. Reflect on what needs closure for the next chapter."
+}
+
 ];
 
 const spreadPositions = ["Past", "Present", "Future"];
