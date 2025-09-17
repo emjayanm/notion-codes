@@ -1,0 +1,55 @@
+<!-- 
+Created by Sarah at emjayanm.com 
+-->
+<div style="background:#000000; padding:20px; border-radius:12px; font-family:'Roboto Mono', 'Noto Mono', monospace; color:#ffffff; max-width:500px; margin:auto; box-shadow:0px 2px 8px rgba(67,80,88,0.2);">
+  <h2 style="text-align:center; color:#ffffff; text-shadow:1px 1px 2px rgba(0,0,0,0.3);">Daily Manifestation Prompt</h2>
+
+  <center><p id="manifestationPrompt" style="margin-top:20px; font-size:16px; line-height:1.6; opacity:0; transition:opacity 1.5s ease-in;"></p></center>
+
+  <hr style="border:0; border-top:1px solid #BFB7B6; margin:20px 0;">
+</div>
+
+<script>
+  const prompts = [
+    "What reality am I choosing to align with today?",
+    "How can I embody the energy of my future self right now?",
+    "What inspired action feels light and joyful to take today?",
+    "How am I already a vibrational match for my desires?",
+    "Where can I let go of resistance and trust the process?",
+    "What belief would fully support the life I’m creating?",
+    "How can I show up as the version of me who already has it?",
+    "What signs of progress can I celebrate today?",
+    "How can I act “as if” my manifestation is already mine?",
+    "Where am I being invited to make room for new blessings?",
+    "What does abundance feel like in my body right now?",
+    "How can I deepen my gratitude for what is unfolding unseen?",
+    "What inspired thought or nudge am I willing to follow today?",
+    "How can I trust my intuition more boldly?",
+    "What limiting story am I ready to release for good?",
+    "How can I open my heart wider to receiving?",
+    "What energy am I radiating outward today?",
+    "How can I become a clearer channel for abundance?",
+    "Where can I choose ease instead of struggle?",
+    "How is the Universe already conspiring in my favor?",
+    "What would it feel like to believe in inevitable success?",
+    "Where in my life can I take one aligned step forward?",
+    "How can I nurture patience while staying excited for what’s coming?",
+    "What is the highest vision for my life that I can hold today?",
+    "How can I infuse today's actions with more trust and joy?",
+    "What would it look like to be fully open to miracles?",
+    "How can I magnetize my desires through self-love today?",
+    "What affirmation empowers me to claim my manifestations boldly?",
+    "Where am I ready to leap into a new possibility?",
+    "How can I honor the divine timing of my manifestations?"
+  ];
+
+  const today = new Date();
+  const dayOfMonth = today.getDate(); // 1-31
+  const promptIndex = (dayOfMonth - 1) % prompts.length;
+  const promptElement = document.getElementById("manifestationPrompt");
+
+  promptElement.textContent = prompts[promptIndex];
+  setTimeout(() => {
+    promptElement.style.opacity = 1;
+  }, 100);
+</script>
