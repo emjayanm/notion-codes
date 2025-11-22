@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Announcement Widget</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto Mono', monospace;
+      background-color: #FFFFFF;
+      color: #435058;
+      padding: 16px;
+      font-size: 18px;
+    }
+
+    .announcement-box {
+      border-left: 4px solid #DCF763;
+      padding-left: 12px;
+      margin-bottom: 12px;
+      box-shadow: 2px 2px 8px rgba(67, 80, 88, 0.08);
+    }
+
+    .announcement-title {
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 4px;
+      color: #435058;
+    }
+
+    .announcement-message a {
+      color: #435058;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: inset 0 -3px 0 #DCF763;
+      transition: all 0.2s ease;
+    }
+
+    .announcement-message a:hover {
+      color: #222;
+      box-shadow: inset 0 -10px 0 #DCF763;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="announcement-box">
+    <div class="announcement-title">📢 Update!</div>
+    <div class="announcement-message">
+      <li>Template update messages will appear here :)</li> 
+    </div>
+  </div>
+  
+</body>
+</html>
